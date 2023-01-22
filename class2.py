@@ -7,15 +7,6 @@ class Vehicle:
        self.__capacity = capacity
        self.__plate_number = plate_number
 
-    def drive(self):
-     print(f"the vehicle : {self.get_name()} is driving!")
-
-    def drift(self):
-     print(f"the vehicle : {self.get_name()} is drifting !!") 
-    
-    def carry_cargo(self):
-     print(f"the vehicle : {self.get_name()} is carrying cargo !!")
-
     def set_brand(self, brand):
         self.__brand = brand
     def get_brand(self):
@@ -42,18 +33,31 @@ class Vehicle:
     def get_plate_number(self):
         return self.__plate_number
 
+    def drive(self):
+     print(f"the vehicle : {self.get_name()} is driving!")
+
+    def drift(self):
+     print(f"the vehicle : {self.get_name()} is drifting !!") 
+    
+    def carry_cargo(self):
+     print(f"the vehicle : {self.get_name()} is carrying cargo !!")
+
 
 class Bus(Vehicle):
     def __init__(self, brand: str, name : str, color : int, capacity: str, plate_number : str, passengers):
         super().__init__(brand, name, color, capacity, plate_number)
 
-        self._passengers = passengers
+        self.passengers = passengers
 
     def set_passengers(self,passengers):
         self.passengers = passengers
-
+          
     def get_passengers(self):
         return self.get_passengers
+
+
+    def drive(self):
+        return print(f"the bus : {self.get_name()} is driving!")
     
 
 
@@ -62,12 +66,19 @@ class Truck(Vehicle):
         super().__init__(brand, name, color, capacity, plate_number)
         self.payload = Payload
 
-    def set_Payload(self,Payload):
+    def set_Payload(self, Payload):
         self.Payload = Payload
           
     def get_payload(self):
-        return self.get_payload
+        return self.Payload
+
     
+
+    
+    def drift(self):
+        return print(f"the truck : {self.get_name()} is drifting !!") 
+    
+
 
 bus = Bus("vOLVO", "1CB", "white", "88 kg", "DK678",90)
 truck = Truck("scania", "raven", "black", "900kg", "sos765", "4,000 ibs")
@@ -77,6 +88,7 @@ print("Bus name:", bus.get_name())
 print("Bus color:", bus.get_color())
 print("Bus capacity:", bus.get_capacity())
 print("Bus plate_number:", bus.get_plate_number())
+print("bus Payload:", bus.set_passengers(90))
 print("Bus passengers:", bus.get_passengers())
 
 print("Truck BRAND:", truck.get_brand())
@@ -84,4 +96,5 @@ print("Truck NAME:", truck.get_name())
 print("Truck color:", truck.get_color())
 print("Truck capacity:", truck.get_capacity())
 print("Truck plate_number:", truck.get_plate_number())
+print("Truck Payload:", truck.set_Payload('4000 lbs'))
 print("Truck Payload:", truck.get_payload())
